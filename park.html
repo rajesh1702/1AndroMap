@@ -143,7 +143,7 @@
 					</div>               
 			<div class="col-md-6">
                 <label>Location:</label>	
-				<input id="autocomplete" placeholder="Enter a city" type="text" ng-focus="disableTap()"/>
+				<input id="autocomplete" placeholder="Enter a city" type="text" data-dom-cache="false"/>
             </div>
         </div>
 	<!--/Features-->
@@ -279,12 +279,7 @@ function initMap() {
         componentRestrictions: countryRestrict
       });
 	  
-	  //Fix for fastclick issue
-        var g_autocomplete = $("body > .pac-container").filter(":visible");
-        g_autocomplete.bind('DOMNodeInserted DOMNodeRemoved', function(event) {
-            $(".pac-item", this).addClass("needsclick");
-        });
-        //End of fix
+	  
   places = new google.maps.places.PlacesService(map);
 
   autocomplete.addListener('place_changed', onPlaceChanged);
@@ -296,6 +291,7 @@ function initMap() {
 
 // When the user selects a city, get the place details for the city and
 // zoom the map in on the city.
+
 function onPlaceChanged() {
   var place = autocomplete.getPlace();
   if (place.geometry) {
