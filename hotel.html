@@ -1,56 +1,27 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Robust Construction of Multiday Itinerary Planning ::RCOMIP::</title>
+    <title>A Novel Efficient Construction of Multiday Itinerary Planning using FCM Clustering ::RCOMIP::</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="css/main.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="css/whhg.css">  
-  <style> 
+	<style> 
      table {
         font-size: 12px;
-      }
-      #map {
-        width: 100%;
-      }
+      }	  
+	  #map{
+		width:849px;	  
+	  }
       #listing {
         position: absolute;
-        width: 30%;
-        height: 100%;
-        overflow: auto;
-        left: 85%;
-        top: 0px;
+        width:auto;
+        height:70%;
+        overflow: visible;
+        left:55px;
+        top: 170px;
         cursor: pointer;
-        overflow-x: hidden;
-      }
-      #findhotels {
-        position: absolute;
-        text-align: right;
-		left:50px;
-        width: 100px;
-        font-size: 14px;
-        padding-top: 4px;
-		padding-left:4px; 
-		padding-bottom:0px;
-        z-index: 5;
-        background-color: #fff;
-      }
-      #locationField {
-        position: absolute;
-        width: 190px;
-        height: 25px;
-        left: 150px;
-        top: 0px;
-        z-index: 5;
-        background-color: #fff;
-      }
-      #controls {
-        position: absolute;
-        left: 340px;
-        width: 140px;
-        top: 0px;
-        z-index: 5;
-        background-color: #fff;
+		overflow-x: hidden;
       }
       #autocomplete {
         width: 100%;
@@ -69,7 +40,7 @@
       }
       #resultsTable {
         border-collapse: collapse;
-        width: 240px;
+        width: 100%;
       }
       #rating {
         font-size: 13px;
@@ -88,11 +59,12 @@
 
     </style>
 </head>
-<body>    
+<body onload="initialize()">    
     <!--/map-->
-    <div class="row site">	
+    <div class="row site">
+	
         <div class="col-md-1 general_menu startpage">
-           <ul>
+            <ul>
                 <li>
                     <a href="poi.html" class="gradientmenu" title="Plan your Trip"><i class="icon-search"></i></a>
                 </li>
@@ -121,34 +93,46 @@
                     <a href="church.html" class="gradientmenu" title="Find Church"><i class="icon-church"></i></a>
                 </li>
             </ul>
-        </div>	
-	<div id="findhotels">    
-    <P>Find hotels in:</P>
-    </div>
-    <div id="locationField">
-      <input id="autocomplete" placeholder="Enter a city" type="text" />
-    </div>
-    <div id="controls">
-      <select id="country">
-        <option value="all">All</option>
-        <option value="au">Australia</option>
-        <option value="br">Brazil</option>
-        <option value="ca">Canada</option>
-        <option value="fr">France</option>
-        <option value="de">Germany</option>
-        <option value="mx">Mexico</option>
-        <option value="nz">New Zealand</option>
-        <option value="it">Italy</option>
-        <option value="za">South Africa</option>
-        <option value="es">Spain</option>
-        <option value="pt">Portugal</option>
-        <option value="us" selected>U.S.A.</option>
-        <option value="uk">United Kingdom</option>
-      </select>
-    </div>
-
-    <div id="map"></div>
-
+        </div>
+		
+		
+        <!--Content-->
+        <div class="col-md-4 general_content_styles index_content">	                 
+            <!--Features-->
+            <div class="row features">
+                <div class="col-md-6">
+                    <label>Select Country</label>
+						<div id="controls">
+							<select id="country">
+								<option value="all">All</option>
+								<option value="au">Australia</option>
+								<option value="br">Brazil</option>
+								<option value="ca">Canada</option>
+								<option value="fr">France</option>
+								<option value="de">Germany</option>
+								<option value="mx">Mexico</option>
+								<option value="nz">New Zealand</option>
+								<option value="it">Italy</option>
+								<option value="za">South Africa</option>
+								<option value="es">Spain</option>
+								<option value="pt">Portugal</option>
+								<option value="us" selected>U.S.A.</option>
+								<option value="uk">United Kingdom</option>
+							</select>
+						</div>
+					</div>               
+			<div class="col-md-6">
+                <label>Location:</label>	
+				<input id="autocomplete" placeholder="Enter a city" type="text" />
+            </div>
+        </div>
+	<!--/Features-->
+	</div>
+    <!--/Content-->
+	<div class="col-md-6" id="map">
+		
+	</div>
+	
     <div id="listing">
       <table id="resultsTable">
         <tbody id="results"></tbody>
@@ -182,7 +166,9 @@
       </div>
     </div>
 </div>
-    <script>
+   
+    
+<script>
 // This example uses the autocomplete feature of the Google Places API.
 // It allows the user to find all hotels in a given place, within a given
 // country. It then displays markers for all the hotels returned,
@@ -460,7 +446,7 @@ function buildIWContent(place) {
     </script>
     <script src="js/bootstrap.js"></script>
     <!--Google maps API linl-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwEPGhCVy84yqgBNL_amrM16Z-Idf-tdM&sensor=true&libraries=places&signed_in=true&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwEPGhCVy84yqgBNL_amrM16Z-Idf-tdM&sensor=true&libraries=places&signed_in=true&callback=initMap"
         async defer></script>
     <!--Your map settings script-->
     <script type="text/javascript" src="js/map.js"></script>        <!--jQuery-->
