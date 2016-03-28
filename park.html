@@ -56,7 +56,27 @@
       .iw_table_icon {
         text-align: right;
       }
+	#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
 
+#pac-input:focus {
+  border-color: #4d90fe;
+  margin-left: -1px;
+  padding-left: 14px;  /* Regular padding-left + 1. */
+  width: 401px;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
     </style>
 </head>
 <body onload="initialize()">    
@@ -123,7 +143,7 @@
 					</div>               
 			<div class="col-md-6">
                 <label>Location:</label>	
-				<input id="autocomplete" placeholder="Enter a city" type="text" />
+				<input id="autocomplete" placeholder="Enter a city" type="text" ng-focus="disableTap()"/>
             </div>
         </div>
 	<!--/Features-->
