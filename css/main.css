@@ -1,4 +1,4 @@
-﻿* {
+* {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -26,7 +26,7 @@ height: 100%;
 
 /*General menu styles*/
 .general_menu {
-background: #2F2F2F;
+background: #b71c1c;
 height: 100%;
 z-index: 8;
 position: fixed;
